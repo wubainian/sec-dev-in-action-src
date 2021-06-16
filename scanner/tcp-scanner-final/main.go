@@ -12,11 +12,10 @@ import (
 func main() {
 	app := cli.NewApp()
 	app.Name = "port_scanner"
-	app.Author = "netxfly"
-	app.Email = "x@xsec.io"
+	app.Authors = []*cli.Author{&cli.Author{Name:"netxfly",  Email: "x@xsec.io"}}
 	app.Version = "2020/3/8"
 	app.Usage = "tcp syn/connect port scanner"
-	app.Commands = []cli.Command{cmd.Scan}
+	app.Commands = []*cli.Command{cmd.Scan}
 	app.Flags = append(app.Flags, cmd.Scan.Flags...)
 	err := app.Run(os.Args)
 	_ = err

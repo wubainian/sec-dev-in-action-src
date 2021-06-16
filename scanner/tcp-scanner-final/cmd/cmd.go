@@ -7,7 +7,7 @@ import (
 )
 
 // ./main --iplist ip_list --port port_list --mode syn  --timeout 2 --concurrency 10
-var Scan = cli.Command{
+var Scan = &cli.Command{
 	Name:        "scan",
 	Usage:       "start to scan port",
 	Description: "start to scan port",
@@ -21,23 +21,23 @@ var Scan = cli.Command{
 	},
 }
 
-func stringFlag(name, value, usage string) cli.StringFlag {
-	return cli.StringFlag{
+func stringFlag(name, value, usage string) *cli.StringFlag {
+	return &cli.StringFlag{
 		Name:  name,
 		Value: value,
 		Usage: usage,
 	}
 }
 
-func boolFlag(name, usage string) cli.BoolFlag {
-	return cli.BoolFlag{
+func boolFlag(name, usage string) *cli.BoolFlag {
+	return &cli.BoolFlag{
 		Name:  name,
 		Usage: usage,
 	}
 }
 
-func intFlag(name string, value int, usage string) cli.IntFlag {
-	return cli.IntFlag{
+func intFlag(name string, value int, usage string) *cli.IntFlag {
+	return &cli.IntFlag{
 		Name:  name,
 		Value: value,
 		Usage: usage,
